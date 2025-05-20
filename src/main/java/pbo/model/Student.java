@@ -74,20 +74,22 @@ public class Student {
     this.courses = courses;
   }  
 
-  @Override
-  public String toString() {
-    if(courses == null){
-      System.out.println(nim + "|" + nama + "|" + prodi);
+  public void printDetail() {
+    System.out.println(nim + "|" + nama + "|" + prodi);
+    if (courses != null) {
       List<Course> sortCourses = courses.stream().sorted(Comparator.comparing(Course::getSemester)
                                                     .thenComparing(Course::getKode))
                                           .collect(Collectors.toList());
-        for (Course course : sortCourses) {
-          System.out.println(course.toString());
-        }
-      return "";
-
-    } else {
-      return nim + "|" + nama + "|" + prodi;
+      for (Course course : sortCourses) {
+        System.out.println(course.toString());
+      }
     }
+  }
+
+
+  @Override
+  public String toString() {
+    return nim + "|" + nama + "|" + prodi;
+
   }
 }

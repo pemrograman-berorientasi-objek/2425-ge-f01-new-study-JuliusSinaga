@@ -1,6 +1,7 @@
 package pbo;
 
 
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -100,7 +101,7 @@ public class App {
 
             entityManager.getTransaction().begin();
             Student studentt = entityManager.find(Student.class, tempNimStu);
-            studentt.toString();
+            studentt.printDetail();
             entityManager.getTransaction().commit();
             break;
         case "student-show-all":
