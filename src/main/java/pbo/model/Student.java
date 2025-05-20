@@ -79,7 +79,7 @@ public class Student {
     if(courses == null){
       System.out.println(nim + "|" + nama + "|" + prodi);
       List<Course> sortCourses = courses.stream().sorted(Comparator.comparing(Course::getSemester)
-                                                    .thenComparing(Course::getKredit))
+                                                    .thenComparing(Course::getKode))
                                           .collect(Collectors.toList());
         for (Course course : sortCourses) {
           System.out.println(course.toString());

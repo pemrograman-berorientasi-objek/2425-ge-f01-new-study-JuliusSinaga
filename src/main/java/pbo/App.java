@@ -112,6 +112,15 @@ public class App {
               System.out.println(tempStu.toString());
             }
             break;
+        case "course-show-all":
+            String courseSql = "SELECT c FROM Course c ORDER BY c.kode";
+            List<Course> courseList = entityManager.createQuery(courseSql, Course.class).getResultList();
+            List<Course> sortCourses = courseList.stream().sorted(Comparator.comparing(Course::getSemester).thenComparing(Course::getKode))
+                                                          .collect(Collectors.toList());
+            for (Course course2 : sortCourses) {
+              System.out.println(course2.toString());
+            }
+            break;
         default:
             System.out.println("Invalid Input!");
       }
