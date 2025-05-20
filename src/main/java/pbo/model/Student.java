@@ -2,12 +2,10 @@ package pbo.model;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import javax.persistence.*;
 
-import org.eclipse.persistence.internal.sessions.DirectCollectionChangeRecord.NULL;
 
 @Entity
 @Table(name = "student")
@@ -23,7 +21,13 @@ public class Student {
   @Column(name = "prodi", length = 50, nullable = false)
   private String prodi;
 
-  @ManyToMany(mappedBy = "student", cascade = CascadeType.ALL)
+  @ManyToMany
+  @JoinTable(name = "STU_COUR", 
+    joinColumns = 
+        @JoinColumn(name = "STU_NIM", referencedColumnName = "nim"),
+    inverseJoinColumns =
+        @JoinColumn(name = "COUR_KODE", referencedColumnName = "kode")
+  )
   private List<Course> courses;
 
   public Student () {

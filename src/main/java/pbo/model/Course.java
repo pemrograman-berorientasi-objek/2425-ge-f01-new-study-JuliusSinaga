@@ -1,6 +1,6 @@
 package pbo.model;
 
-import java.util.List;
+import java.util.*;
 
 import javax.persistence.*;
 
@@ -21,9 +21,7 @@ public class Course {
   @Column(name = "kredit", nullable = false)
   private int kredit;
 
-  @ManyToMany(targetEntity = Student.class, cascade = CascadeType.ALL)
-  @JoinTable(name = "student_enroll", joinColumns = @JoinColumn(name = "student_nim", referencedColumnName = "nim"),
-  inverseJoinColumns = @JoinColumn(name = "course_kode", referencedColumnName = "kode"))
+  @ManyToMany(mappedBy = "courses")
   private List<Student> students;
 
   public Course () {
