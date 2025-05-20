@@ -1,5 +1,10 @@
 package pbo.model;
 
+/**
+ * @author 12S23005 Ariella Sihombing
+ * @author 12S23035 Julius Sinaga
+ */
+
 import java.util.*;
 
 import javax.persistence.*;

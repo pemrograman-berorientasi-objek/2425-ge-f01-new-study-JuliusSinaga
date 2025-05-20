@@ -1,6 +1,9 @@
 package pbo;
 
-
+/**
+ * @author 12S23005 Ariella Sihombing
+ * @author 12S23035 Julius Sinaga
+ */
 
 import java.util.*;
 import java.util.stream.Collectors;
